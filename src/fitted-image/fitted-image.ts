@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
 import { ViewController, Scroll } from 'ionic-angular';
 import { Subject } from 'rxjs/Subject';
+import { ZoomableImage } from 'index';
 
 @Component({
   selector: 'fitted-image',
@@ -65,6 +66,7 @@ export class FittedImage implements OnInit, OnDestroy {
 
     // Mark as not loading anymore
     this.loading = false;
+    ZoomableImage.hideLoading();
   }
 
   /**

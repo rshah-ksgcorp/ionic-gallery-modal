@@ -32,7 +32,7 @@ export class ZoomableImage implements OnInit, OnDestroy {
 
   private imageWidth: number = 0;
   private imageHeight: number = 0;
-
+  static loading: Boolean = true
   private originalSize: any = {
     width: 0,
     height: 0,
@@ -296,7 +296,7 @@ export class ZoomableImage implements OnInit, OnDestroy {
    *
    * @param  {number} scale
    */
-  private animateScale(scale:number) {
+  private animateScale(scale: number) {
     this.scale += (scale - this.scale) / 5;
 
     if (Math.abs(this.scale - scale) <= 0.1) {
@@ -311,4 +311,12 @@ export class ZoomableImage implements OnInit, OnDestroy {
       this.checkScroll();
     }
   }
+
+  private loading = function (scale) {
+    return ZoomableImage.loading;
+  }
+  static hideLoading = function () {
+    ZoomableImage.loading = false;
+  }
+
 }
